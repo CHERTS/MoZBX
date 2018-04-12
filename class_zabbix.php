@@ -170,6 +170,15 @@ class Zabbix
         return (bool)$this->auth_token;
     }
 
+    public function Logout()
+    {
+        $result = $this->sendRequest("user.logout");
+
+        //$resul = $this->decodeJson($json_login);
+        if (isset($result->result))
+            $this->auth_token = $result->result;
+    }
+
     public function getVersion()
     {
         // Retrieve Zabbix Version

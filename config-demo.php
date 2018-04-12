@@ -15,6 +15,10 @@
 	/* Should we prompt for username & password, or just accept what's in this config and login automatically? */
 	/* Note: if you set this to false, everyone visiting this URL will have access !! */
 	$arrSettings["promptCredentials"]	= true;		
+
+	/* If set to true, provides HTTP basic auth credentials to cURL */
+	/* Useful if your zabbix server is protected by HTTP Auth instead of, or in addition to form authentication */
+	$arrSettings["useHttpAuth"] = false;
 	
 	/* Your Zabbix's server's hostname: used in the Zabbix Cookie Forging for retrieving graphs */
 	/* This needs to match your server's hostname. Ie: http://zabbix.lab.mojah.be/zabbix/index.php */
@@ -29,6 +33,9 @@
 	
 	/* Where is the 'api_jsonrpc.php', 'chart2.php' and 'index.php' file of Zabbix located?? */
 	$arrSettings["zabbixApiUrl"]		= "http://www.mozbx.net/zabbix/";
+
+	/* Turn on verbose debugging output of curl to std error */
+	$arrSettings["curlVerbose"] = false;
 	
 	/* Debug JSON requests: echo all sent & received data */
 	$arrSettings["jsonDebug"]		= false;
