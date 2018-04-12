@@ -56,6 +56,12 @@
         In development by <b>Mattias Geniar</b>
     </p>
 
+    <h3>Changelog: version 0.6</h3>
+    <p>
+        Added Zabbix 3.4 compatibility<br />
+        Added parameter showSendFeedback - show/hide 'Send Feedback' button<br />
+    </p>
+
     <h3>Changelog: version 0.5</h3>
     <p>
         Improved Zabbix 2.0 compatibility<br />

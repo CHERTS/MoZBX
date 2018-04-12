@@ -10,32 +10,35 @@
 	###########################################################################*/
 	
 	/* If set to true, will show a textfield to input the URL */
-	$arrSettings["isHosted"]				= false;
+	$arrSettings["isHosted"]		= false;
 	
 	/* Should we prompt for username & password, or just accept what's in this config and login automatically? */
 	/* Note: if you set this to false, everyone visiting this URL will have access !! */
-	$arrSettings["promptCredentials"]		= true;		
+	$arrSettings["promptCredentials"]	= true;		
 	
 	/* Your Zabbix's server's hostname: used in the Zabbix Cookie Forging for retrieving graphs */
 	/* This needs to match your server's hostname. Ie: http://zabbix.lab.mojah.be/zabbix/index.php */
 	/* Would mean your zabbixHostname is 'zabbix.lab.mojah.be' (the FQDN) */
-	$arrSettings["zabbixHostname"]			= "mozbx.net";
+	$arrSettings["zabbixHostname"]		= "mozbx.net";
 	
 	/* This is mostly only useful during debugging (less typing) */
-	$arrSettings["zabbixUsername"]			= "demo";
+	$arrSettings["zabbixUsername"]		= "demo";
 	
 	/* Again, useful for debugging. You don't want this in production. */
-	$arrSettings["zabbixPassword"]			= "";
+	$arrSettings["zabbixPassword"]		= "";
 	
 	/* Where is the 'api_jsonrpc.php', 'chart2.php' and 'index.php' file of Zabbix located?? */
-	$arrSettings["zabbixApiUrl"]			= "http://www.mozbx.net/zabbix/";
+	$arrSettings["zabbixApiUrl"]		= "http://www.mozbx.net/zabbix/";
 	
 	/* Debug JSON requests: echo all sent & received data */
-	$arrSettings["jsonDebug"]				= false;
-    $arrSettings["jsonDebug_path"]          = "/var/www/vhosts/mozbx.net/httpdocs/logs/";
+	$arrSettings["jsonDebug"]		= false;
+	$arrSettings["jsonDebug_path"]          = "/var/www/vhosts/mozbx.net/httpdocs/logs/";
 	
 	/* How long should our cookies be valid? */
-	$arrSettings["cookieExpire"]			= time() + 60 * 60 * 7;
+	$arrSettings["cookieExpire"]		= time() + 60 * 60 * 7;
+
+	/* Show 'Send Feedback' button */
+	$arrSettings["showSendFeedback"]        = true;
 	
 	/* #########################################################################
 	##
@@ -63,7 +66,7 @@
 	$arrSettings["mZabbixVersion"]			= "0.3";
 	
 	/* What should we name our little app? */
-	$arrSettings["mZabbixName"]				= "Mobile ZBX";
+	$arrSettings["mZabbixName"]			= "Mobile ZBX";
 	
 	/* Show empty hostgroups ? */
 	$arrSettings["showEmptyHostgroups"]		= false;
@@ -82,7 +85,7 @@
 	$arrSettings["cssStyleButton"]			= "border-width: 0 12px; display: block; padding 10px; text-align: center; font-size: 20px;";
 	
 	/* What theme should we use for the app? Options: jqt || apple */
-	$arrSettings["appTheme"]				= "apple";
+	$arrSettings["appTheme"]			= "apple";
 	
 	/* What color should our statusbar be? This should match our theme (jqt = black, apple = white) */
 	$arrSettings["appStatusbarColor"]		= "white";

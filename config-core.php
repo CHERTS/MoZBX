@@ -44,6 +44,9 @@ $arrSettings["curlVerbose"] = false;
 /* How long should our cookies be valid? */
 $arrSettings["cookieExpire"] = time() + 60 * 60 * 7;
 
+/* Show 'Send Feedback' button */
+$arrSettings["showSendFeedback"] = true;
+
 /* #########################################################################
     ##
     ##

@@ -76,7 +76,7 @@
     <h2>Options</h2>
     <p>
         <a class="btn btn-large" style='padding: 15px; width:250px; margin-top: 7px;' href="logout.php">Logout</a><br />
-        <a class="btn btn-large" style='padding: 15px; width:250px; margin-top: 7px;' href="feedback.php">Send Feedback</a><br />
+        <?php if ($arrSettings["showSendFeedback"]) { echo "<a class=\"btn btn-large\" style='padding: 15px; width:250px; margin-top: 7px;' href=\"feedback.php\">Send Feedback</a><br />"; } ?>
         <a class="btn btn-large" style='padding: 15px; width:250px; margin-top: 7px;' href="about.php">About version <?php echo $arrSettings["mZabbixVersion"]; ?></a><br />
     </p>
 </div>

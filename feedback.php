@@ -21,6 +21,11 @@ if (!$zabbix->isLoggedIn()) {
     exit();
 }
 
+if (!$arrSettings["showSendFeedback"]) {
+    header("Location: index.php");
+    exit();
+}
+
 $boolShowThankyou = false;
 $boolShowFeedbackForm = true;
 $boolShowTextlengthWarn = false;
@@ -76,19 +81,28 @@ if (isset($_POST['mZabbixFeedback'])) {
 require_once("template/header.php");
 ?>
 
-<div id="feedback">
-    <div class="toolbar">
-        <h1>Feedback</h1>
-        <a class="button slideup" id="infoButton" href="<?php echo $arrSettings["urlApplication"]?>" target="_webapp">Back</a>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <ul class="breadcrumb">
+            <li>
+                <a href="index.php">Home</a> <span class="divider">/</span>
+            </li>
+            <li class="active">
+                Feedback
+            </li>
+        </ul>
     </div>
+</div>
+
+<div class="container">
+
+<div id="feedback">
 
     <?php
     if ($boolShowFeedbackForm) {
         ?>
-        <ul class="rounded">
             <form method="post" action="feedback.php" class="form">
                 <input type="hidden" name="mZabbixFeedback" value="Send"/>
-                <li>
                     Comments on this app: <br/>
                     <textarea name="txtFeedback" cols="120"
                               style='margin-top: 4px; margin-bottom: 4px; padding: 4px; border: 1px solid gray; width: 270px; height:160px'><?php echo isset($_POST['txtFeedback']) ? $_POST['txtFeedback'] : '' ?></textarea><br/>
@@ -100,27 +114,26 @@ require_once("template/header.php");
                     }
                     ?>
                     <i>At least 30 characters long.</i>
-                    </font>
-                </li>
-
-                <li>
+                    </font><br />
                     <input type="submit" name="mZabbixFeedback" value="Send!" class="whiteButton" onclick="submit()"/>
-                </li>
             </form>
-        </ul>
         <?php
     }
 
     if ($boolShowThankyou) {
         ?>
-        <ul class="rounded">
-            <li>Thank you for your valuable feedback!</li>
-            <li><a href="<?php echo $arrSettings["urlApplication"]?>" target="_webapp">Home</a></li>
-        </ul>
+            <div class="alert alert-info">
+                <h2>Thank you for feedback</h2>
+                <p>
+	        Thank you for your valuable feedback!
+                </p>
+             </div>
         <?php
     }
     ?>
 </div>
+</div>
+
 <?php
 require_once("template/footer.php");
 ?>
