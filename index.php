@@ -1,10 +1,10 @@
 <?php
-    require_once("config.inc.php");
-    require_once("functions.php");
-    require_once("class_zabbix.php");
+	require_once("config.inc.php");
+	require_once("functions.php");
+	require_once("class_zabbix.php");
 
-    /* Include the basic header/css/... */
-    require_once("template/header.php");
+	/* Include the basic header/css/... */
+	require_once("template/header.php");
 
 	// Main Zabbix object
 	$zabbix = new Zabbix($arrSettings);

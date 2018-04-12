@@ -2,9 +2,11 @@
 	require_once("config.inc.php");
 	require_once("functions.php");
 	require_once("class_zabbix.php");
-	require_once("cookies.php");
 
 	$zabbix = new Zabbix($arrSettings);
+
+	// Get values from cookies, if any
+	require_once("cookies.php");
 
 	// Populate our class
 	$zabbix->setUsername($zabbixUser);
@@ -24,10 +26,10 @@
 		exit();
 	}
 
-    require_once("template/header.php");
+	require_once("template/header.php");
 
 	$zabbixTriggerId = (string) $_GET['triggerid'];
-    $zabbixHostId = (string) $_GET['hostid'];
+	$zabbixHostId = (string) $_GET['hostid'];
 	if ($zabbixTriggerId > 0 && $zabbixHostId > 0) {
         // Retrieve the trigger information
         $trigger = $zabbix->getTriggerByTriggerAndHostId($zabbixTriggerId, $zabbixHostId);

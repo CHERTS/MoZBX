@@ -1,11 +1,13 @@
 <?php
 	require_once("config.inc.php");
-    require_once("functions.php");
+	require_once("functions.php");
 	require_once("class_zabbix.php");
-	require_once("cookies.php");
 
 	$arrSettings["zabbixApiUrl"] = str_replace("api_jsonrpc.php", "", $zabbixApi);
 	$zabbix = new Zabbix($arrSettings);
+
+	// Get values from cookies, if any
+	require_once("cookies.php");
 
 	// Populate our class
 	$zabbix->setUsername($zabbixUser);
@@ -26,7 +28,7 @@
 	}
 
 	$graphid = (string) $_GET['graphid'];
-    $graphperiod = (string) $_GET['period'];
+	$graphperiod = (string) $_GET['period'];
 	
 	// Set correct header
 	header("Content-Type: image/jpg");

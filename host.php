@@ -2,9 +2,11 @@
 	require_once("config.inc.php");
 	require_once("functions.php");
 	require_once("class_zabbix.php");
-	require_once("cookies.php");
 
 	$zabbix = new Zabbix($arrSettings);
+
+	// Get values from cookies, if any
+	require_once("cookies.php");
 
 	// Populate our class
 	$zabbix->setUsername($zabbixUser);
@@ -24,11 +26,11 @@
 		exit();
 	}
 
-    require_once("template/header.php");
+	require_once("template/header.php");
 
 	$zabbixHostId = (string) $_GET['hostid'];
-    $zabbixHostGroupId = (string) $_GET['groupid'];
-    $zabbixHostGroupName = (string) urldecode($_GET['groupname']);
+	$zabbixHostGroupId = (string) $_GET['groupid'];
+	$zabbixHostGroupName = (string) urldecode($_GET['groupname']);
 	if ($zabbixHostId > 0) {
 		$host 		= $zabbix->getHostById($zabbixHostId);
 

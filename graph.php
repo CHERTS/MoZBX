@@ -1,11 +1,13 @@
 <?php
-    require_once("config.inc.php");
+	require_once("config.inc.php");
 	require_once("functions.php");
 	require_once("class_zabbix.php");
-	require_once("cookies.php");
 
 	$arrSettings["zabbixApiUrl"] = str_replace("api_jsonrpc.php", "", $zabbixApi);
 	$zabbix = new Zabbix($arrSettings);
+
+	// Get values from cookies, if any
+	require_once("cookies.php");
 
 	// Populate our class
 	$zabbix->setUsername($zabbixUser);
@@ -25,22 +27,22 @@
 		exit();
 	}
 
-    require_once("template/header.php");
+	require_once("template/header.php");
 
 	$zabbixGraphId = (string) $_GET['graphid'];
-    $zabbixGraphPeriod = (string) $_GET['period'];
-    $zabbixHostId = (string) $_GET['hostid'];
-    $zabbixHostGroupId = (string) $_GET['groupid'];
-    $zabbixHostGroupName = (string) urldecode($_GET['groupname']);
-    $zabbixHostName = (string) urldecode($_GET['hostname']);
+	$zabbixGraphPeriod = (string) $_GET['period'];
+	$zabbixHostId = (string) $_GET['hostid'];
+	$zabbixHostGroupId = (string) $_GET['groupid'];
+	$zabbixHostGroupName = (string) urldecode($_GET['groupname']);
+	$zabbixHostName = (string) urldecode($_GET['hostname']);
 
-    $urlParameters = "hostid=". $zabbixHostId ."&hostname=". $zabbixHostName ."&groupid=". $zabbixHostGroupId ."&groupname=". urlencode($zabbixHostGroupName);
+	$urlParameters = "hostid=". $zabbixHostId ."&hostname=". $zabbixHostName ."&groupid=". $zabbixHostGroupId ."&groupname=". urlencode($zabbixHostGroupName);
 
-    if ($zabbixGraphId > 0) {
-        $graph = $zabbix->getGraphById($zabbixGraphId);
-    } else {
-        $graph = null;
-    }
+	if ($zabbixGraphId > 0) {
+		$graph = $zabbix->getGraphById($zabbixGraphId);
+	} else {
+		$graph = null;
+	}
 ?>
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
